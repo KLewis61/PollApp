@@ -64,6 +64,10 @@ jobs:
   process:
     if: ${{ needs.scan.outputs.report_id }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
     environment:
       name: nowsecure-env
     # The above stage we introduced.
