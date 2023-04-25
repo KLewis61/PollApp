@@ -58,7 +58,7 @@ jobs:
         with:
           platform_token: ${{ secrets.NS_TOKEN }}
           # TODO: Replace application path.
-          app_file:  "k9mail-debug.apk"	
+          app_file:  "app-debug.apk"	
           # TODO: Replace the Group ID.
           group_id: "e487b673-6d93-4131-b4ec-b4d072916962"	  
   process:
@@ -71,6 +71,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        
+      - name: Install ripgrep
+        run: sudo apt-get install -y ripgrep
 
       - name: NowSecure download report
         uses: nowsecure/nowsecure-action/convert-sarif@v3
